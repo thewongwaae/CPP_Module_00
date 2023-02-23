@@ -25,11 +25,13 @@ class Contact {
 		std::string	_darkestSecret;
 		int			_index;
 
-		std::string	_printLen(std::string str) const;
+		std::string	_print(std::string str) const;
 		std::string	_getInput(std::string str) const;
 	
 	public:
+		// constructor - init objs and alloc mem
 		Contact();
+		// deconstructor - release mem and clean up
 		~Contact();
 		void	init(void);
 		void	view(int index) const;

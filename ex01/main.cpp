@@ -26,6 +26,8 @@ int main(void) {
 		}
 		std::cout << ">" << std::flush;
 		std::cin >> input;
+		for (int i = 0; input[i]; i++)
+			input[i] = toupper(input[i]);
 	}
 	return (0);
 }

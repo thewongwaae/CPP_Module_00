@@ -1,36 +1,29 @@
-NAME = phonebook
-CC = c++
-FLAGS = -Wall -Werror -Wextra -std=c++98
-RM = rm -rf
+NAME	= PhoneBook
+CPP		= c++
+FLAGS	= -Wall -Wextra -Werror -I -std=c++98
+RM		= rm -rf
 
-INCLUDES = includes
-SRCS = main.cpp Contact.cpp PhoneBook.cpp
-OBJS = $(SRCS:.cpp=.o)
+SRC		= main.cpp Contact.cpp PhoneBook.cpp
+INC		= Contact.hpp PhoneBook.hpp
 
-GREEN = \e[92;5;118m
-YELLOW = \e[93;5;226m
-RESET = \e[0m
+OBJ		= $(SRC:%.cpp=%.o)
 
-# Debug
-ifeq ($(DEBUG), 1)
-   OPTS = -g
-endif
+all : $(NAME)
 
-%.o: %.cpp $(INCLUDES)
-	$(CC) $(CFLAGS) -c $< -I $(INCLUDES)
+%.o : %.cpp $(INC)
+	@echo "\033[0;33mCompiling $<\033[0m"
+	@$(CPP) $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJS) $(INCLUDES)
-	@printf "$(GREEN)Generating executable...\n$(RESET)";
-	@$(CC) $(OBJS) $(OPTS) -o $(NAME)
-
-all: $(NAME)
+$(NAME) : $(OBJ)
+	@echo "\033[0;32mMy PhoneBook\033[0m"
+	@$(CPP) $(FLAGS) $^ -o $@
 
 clean:
-	@printf "$(YELLOW)Removing object files...\n$(RESET)";
-	@$(RM) $(OBJS)
+	@echo "\033[0;31mRemoving objects...\033[0m"
+	@$(RM) $(OBJ)
 
 fclean: clean
-	@printf "$(YELLOW)Removing executable...\n$(RESET)";
+	@echo "\033[0;31mWiping it clean...\033[0m"
 	@$(RM) $(NAME)
 
-re: fclean all
+re : fclean all

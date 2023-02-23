@@ -34,16 +34,16 @@ std::string Contact::_getInput(std::string str) const {
 
 void Contact::init(void) {
 	std::cin.ignore();
-	this->_firstName = this->_getInput("Please enter you first name: ");
-	this->_lastName = this->_getInput("Please enter your last name: ");
-	this->_nickName = this->_getInput("Please enter your nickname: ");
-	this->_phoneNumber = this->_getInput("Please enter your phone number: ");
-	this->_darkestSecret = this->_getInput("Please enter your darkest secret: ");
+	this->_firstName = this->_getInput("First name:\t");
+	this->_lastName = this->_getInput("Last name:\t");
+	this->_nickName = this->_getInput("Nickname:\t");
+	this->_phoneNumber = this->_getInput("Phone number:\t");
+	this->_darkestSecret = this->_getInput("Darkest secret:\t");
 	std::cout << std::endl;
 }
 
 
-std::string Contact::_printLen(std::string str) const {
+std::string Contact::_print(std::string str) const {
 	if (str.length() > 10)
 		return str.substr(0, 9) + ".";
 	return str;
@@ -57,9 +57,9 @@ void Contact::view(int index) const {
 	if (this->_firstName.empty() || this->_lastName.empty() || this->_nickName.empty())
 		return ;
 	std::cout << "|" << std::setw(10) << index << std::flush;
-	std::cout << "|" << std::setw(10) << this->_printLen(this->_firstName) << std::flush;
-	std::cout << "|" << std::setw(10) << this->_printLen(this->_lastName) << std::flush;
-	std::cout << "|" << std::setw(10) << this->_printLen(this->_nickName) << std::flush;
+	std::cout << "|" << std::setw(10) << this->_print(this->_firstName) << std::flush;
+	std::cout << "|" << std::setw(10) << this->_print(this->_lastName) << std::flush;
+	std::cout << "|" << std::setw(10) << this->_print(this->_nickName) << std::flush;
 	std::cout << "|" << std::endl;
 }
 

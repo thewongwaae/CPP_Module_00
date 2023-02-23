@@ -8,7 +8,7 @@ SRC		= megaphone.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 %.o: %.cpp
-	@echo "\033[0;33mCompiling $<"
+	@echo "\033[0;33mCompiling $<\033[0m"
 	@$(CC) $(FLAGS) -c $< -o $@
 
 all: $(NAME)

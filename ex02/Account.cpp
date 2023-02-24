@@ -78,7 +78,7 @@ void Account::makeDeposit(int deposit) {
 	std::cout	<< "Index: " << _accountIndex << " | "
 				<< "Amount: \033[0;33m" << _amount << "\033[0m | " << std::flush;
 	_amount += deposit;
-	std::cout	<< "Deposit: " << deposit << " | "
+	std::cout	<< "Deposit: \033[0;33m" << deposit << "\033[0m | "
 				<< "Amount: \033[0;33m" << _amount << "\033[0m | "
 				<< "Deposits: "<< _nbDeposits << std::endl;
 }
